@@ -1,0 +1,11 @@
+@{
+    ViewData["Title"] = "Movie Added";
+    Layout = "_Layout";
+}
+
+<div class="text-center mt-5">
+    <h1>Movie successfully added!</h1>
+    <p>Thank you for adding a movie to the collection.</p>
+    <a href="@Url.Action("AddMovie","Home")" class="btn btn-primary mt-3">Add Another Movie</a>
+    <a href="@Url.Action("Index","Home")" class="btn btn-secondary mt-3">Back to Home</a>
+</div>

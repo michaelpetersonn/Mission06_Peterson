@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Mission06_Peterson.Models;
 
@@ -6,19 +5,46 @@ namespace Mission06_Peterson.Controllers;
 
 public class HomeController : Controller
 {
+    private readonly MovieCollectionContext _context;
+
+    public HomeController(MovieCollectionContext context)
+    {
+        _context = context;
+    }
+
+    // Home page
     public IActionResult Index()
     {
         return View();
     }
 
-    public IActionResult Privacy()
+    // Get to Know Joel page
+    public IActionResult GetToKnowJoel()
     {
         return View();
     }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
+    // Display AddMovie form
+    [HttpGet]
+    public IActionResult AddMovie()
     {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult AddMovie(Movie movie)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.Movies.Add(movie);
+            _context.SaveChanges();
+            return RedirectToAction("Confirmation");
+        }
+        return View(movie);
+    }
+    public IActionResult Confirmation()
+    {
+        return View();
     }
 }
