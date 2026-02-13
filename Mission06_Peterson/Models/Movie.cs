@@ -23,7 +23,7 @@ public class Movie
     public string MovieRating { get; set; } = string.Empty;
 
     // Optional boolean, non-nullable for Razor checkbox
-    public bool Edited { get; set; } = false;
+    public bool? Edited { get; set; } = false;
 
     // Optional fields
     public string? LentTo { get; set; }
