@@ -44,9 +44,13 @@
         <span asp-validation-for="MovieRating" class="text-danger"></span>
     </div>
 
-    <div class="form-group form-check">
-        <input asp-for="Edited" type="checkbox" class="form-check-input" />
-        <label asp-for="Edited" class="form-check-label">Edited?</label>
+    <div class="form-group">
+        <label asp-for="Edited">Edited?</label>
+        <select asp-for="Edited" class="form-control">
+            <option value="">--Select--</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
         <span asp-validation-for="Edited" class="text-danger"></span>
     </div>
 
