@@ -30,7 +30,7 @@ public class HomeController : Controller
     {
         return View();
     }
-
+    // This is to show our confirmation and send it with our post method
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult AddMovie(Movie movie)

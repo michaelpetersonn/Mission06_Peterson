@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace Mission06_Peterson.Models;
-
+// Setting our primary table along with our variables with whether they are required or not
 public class Movie
 {
     [Key]
