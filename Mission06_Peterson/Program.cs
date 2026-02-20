@@ -4,7 +4,7 @@ using Mission06_Peterson.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<MovieCollectionContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("MovieConnection")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("JoelHiltonMovieCollection")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
