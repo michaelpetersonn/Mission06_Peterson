@@ -49,11 +49,7 @@ public class MovieController : Controller
         return View(movie);
     }
 
-    // =========================
-    // EDIT MOVIE (POST)
-    // =========================
     [HttpPost]
-    [ValidateAntiForgeryToken]
     public IActionResult Edit(Movie movie)
     {
         if (ModelState.IsValid)
@@ -63,6 +59,7 @@ public class MovieController : Controller
             return RedirectToAction("ShowMe");
         }
 
+        // 🔴 REQUIRED or dropdown crashes
         ViewBag.Categories = new SelectList(
             _context.Categories,
             "CategoryId",

@@ -28,9 +28,9 @@
 
     <!-- Category Dropdown (REQUIRED BY RUBRIC) -->
     <div class="mb-3">
-        <label asp-for="CategoryId" class="form-label">Category</label>
+        <label asp-for="CategoryId" class="form-label">C</label>
         <select asp-for="CategoryId"
-                asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"))"
+                asp-items="ViewBag.Categories"
                 class="form-select">
         </select>
         <span asp-validation-for="CategoryId" class="text-danger"></span>
