@@ -23,28 +23,5 @@ public class HomeController : Controller
     {
         return View();
     }
-
-    // Display AddMovie form
-    [HttpGet]
-    public IActionResult AddMovie()
-    {
-        return View();
-    }
-    // This is to show our confirmation and send it with our post method
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public IActionResult AddMovie(Movie movie)
-    {
-        if (ModelState.IsValid)
-        {
-            _context.Movies.Add(movie);
-            _context.SaveChanges();
-            return RedirectToAction("Confirmation");
-        }
-        return View(movie);
-    }
-    public IActionResult Confirmation()
-    {
-        return View();
-    }
+    
 }

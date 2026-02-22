@@ -1,0 +1,95 @@
+@model Mission06_Peterson.Models.Movie
+
+@{
+    ViewBag.Title = "Edit Movie";
+    Layout = "_Layout";
+}
+
+<h2 class="mb-4">Edit Movie</h2>
+
+<form asp-action="Edit" method="post" class="card p-4 shadow-sm">
+
+    <!-- Hidden ID -->
+    <input type="hidden" asp-for="MovieId" />
+
+    <!-- Title -->
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <!-- Year -->
+    <div class="mb-3">
+        <label asp-for="Year" class="form-label"></label>
+        <input asp-for="Year" type="number" class="form-control" />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+
+    <!-- Category Dropdown (REQUIRED BY RUBRIC) -->
+    <div class="mb-3">
+        <label asp-for="CategoryId" class="form-label">Category</label>
+        <select asp-for="CategoryId"
+                asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName"))"
+                class="form-select">
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+    <!-- Director -->
+    <div class="mb-3">
+        <label asp-for="Director" class="form-label"></label>
+        <input asp-for="Director" class="form-control" />
+        <span asp-validation-for="Director" class="text-danger"></span>
+    </div>
+
+    <!-- Rating -->
+    <div class="mb-3">
+        <label asp-for="Rating" class="form-label"></label>
+        <select asp-for="Rating" class="form-select">
+            <option>G</option>
+            <option>PG</option>
+            <option>PG-13</option>
+            <option>R</option>
+        </select>
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <!-- Edited -->
+    <div class="mb-3">
+        <label asp-for="Edited" class="form-label">Edited?</label>
+        <select asp-for="Edited" class="form-select">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+
+    <!-- Copied To Plex -->
+    <div class="mb-3">
+        <label asp-for="CopiedToPlex" class="form-label">Copied to Plex?</label>
+        <select asp-for="CopiedToPlex" class="form-select">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+
+    <!-- Optional -->
+    <div class="mb-3">
+        <label asp-for="LentTo" class="form-label"></label>
+        <input asp-for="LentTo" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Notes" class="form-label"></label>
+        <input asp-for="Notes" maxlength="25" class="form-control" />
+    </div>
+
+    <!-- Buttons -->
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a asp-action="ShowMe" class="btn btn-secondary ms-2">Cancel</a>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -14,4 +14,17 @@
       </PackageReference>
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Home\Movies\index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Movie\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Movie\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Home\Movie\ShowMe.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Views\Movie\Delete.cshtml" />
+      <AdditionalFiles Include="Views\Movie\Edit.cshtml" />
+      <AdditionalFiles Include="Views\Movie\ShowMe.cshtml" />
+    </ItemGroup>
+
 </Project>

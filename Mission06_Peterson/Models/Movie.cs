@@ -1,7 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission06_Peterson.Models;
 // Setting our primary table along with our variables with whether they are required or not
+[Table("Movies")]
 public class Movie
 {
     [Key]
@@ -14,13 +16,11 @@ public class Movie
     [Range(1888, 2100, ErrorMessage = "Year must be between 1888, 2100")]
     public int Year { get; set; }
 
-    [Required]
-    public string Director { get; set; } = string.Empty;
+    public string? Director { get; set; }
 
-    [Required]
-    public string Rating { get; set; } = string.Empty;
+    public string? Rating { get; set; }
     
-    //category
+// Category (foreign key + navigation property)
     public int CategoryId { get; set; }
     public Category? Category { get; set; }
 

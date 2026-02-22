@@ -1,7 +1,9 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission06_Peterson.Models;
 
+[Table("Categories")]
 public class Category
 {
         public int CategoryId { get; set; }
