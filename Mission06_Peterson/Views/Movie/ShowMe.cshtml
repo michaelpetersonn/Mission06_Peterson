@@ -7,6 +7,7 @@
 
 <h2 class="mb-4">Joel Hilton Movie Collection</h2>
 
+<!--This displays everything from our databases-->
 <table class="table table-striped table-bordered">
     <thead class="table-dark">
     <tr>
@@ -19,6 +20,8 @@
     </tr>
     </thead>
     <tbody>
+    
+    <!--Loops through everything in our daabse while connecteing to our categories database.-->
     @foreach (var movie in Model)
     {
         <tr>
@@ -34,7 +37,8 @@
                    class="btn btn-warning btn-sm">
                     Edit
                 </a>
-
+                
+<!---Delete Function-->
                 <a asp-controller="Movie"
                    asp-action="Delete"
                    asp-route-id="@movie.MovieId"

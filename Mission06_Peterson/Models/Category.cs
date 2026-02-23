@@ -7,7 +7,7 @@ namespace Mission06_Peterson.Models;
 public class Category
 {
         public int CategoryId { get; set; }
-        
+        //Seeting our Category Model to connect to our table.
         [Required]
         public string CategoryName { get; set; } = string.Empty;
         public ICollection<Movie> Movies { get; set; } = new List<Movie>();

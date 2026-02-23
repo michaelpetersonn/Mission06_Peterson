@@ -14,9 +14,7 @@ public class MovieController : Controller
         _context = context;
     }
 
-    // =========================
-    // LIST ALL MOVIES
-    // =========================
+  // Display all movies
     public IActionResult ShowMe()
     {
         var movies = _context.Movies
@@ -26,9 +24,7 @@ public class MovieController : Controller
         return View(movies);
     }
 
-    // =========================
-    // EDIT MOVIE (GET)
-    // =========================
+    // Edit all movies GET
     [HttpGet]
     public IActionResult Edit(int id)
     {
@@ -59,7 +55,7 @@ public class MovieController : Controller
             return RedirectToAction("ShowMe");
         }
 
-        // 🔴 REQUIRED or dropdown crashes
+        //Show drop down for all the movies POST
         ViewBag.Categories = new SelectList(
             _context.Categories,
             "CategoryId",
@@ -70,9 +66,7 @@ public class MovieController : Controller
         return View(movie);
     }
 
-    // =========================
-    // DELETE MOVIE (GET)
-    // =========================
+    // We delete all movies using our GET method
     [HttpGet]
     public IActionResult Delete(int id)
     {
@@ -88,9 +82,7 @@ public class MovieController : Controller
         return View(movie);
     }
 
-    // =========================
-    // DELETE MOVIE (POST)
-    // =========================
+    //Delete all movies using the POST method
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public IActionResult DeleteConfirmed(int id)

@@ -20,11 +20,11 @@ public class Movie
 
     public string? Rating { get; set; }
     
-// Category (foreign key + navigation property)
+// Category this attaches to the foreign key of our table
     public int CategoryId { get; set; }
     public Category? Category { get; set; }
 
-    // Optional boolean, non-nullable for Razor checkbox
+    // setting what is optional to be optional.
     [Required]
     public bool Edited { get; set; } = false;
 
